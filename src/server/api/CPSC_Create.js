@@ -1,4 +1,4 @@
-const bitcoin = require('bitcoinjs-lib');
+var bitcoin = require('bitcoinjs-lib');
 
 /**
 * @file Creates a proxy CypherPoker Smart Contract and defines a few blockchain utility functions.

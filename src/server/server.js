@@ -103,8 +103,8 @@ const JSONRPC_ERRORS = {
 *
 * @property {String} api_dir="./api" A directory containing all available API methods that may be invoked. Each API method must match
 * a filename and the entry function in that file must also have the same name.
-* @property {Number} http_port=8080 The listening port for the HTTP server.
-* @property {Number} ws_port=8090 The listening port for the WebSocket server.
+* @property {Number} http_port=8082 The listening port for the HTTP server.
+* @property {Number} ws_port=8092 The listening port for the WebSocket server.
 * @property {Number} max_batch_requests=5 The maximum allowable number of batched RPC calls in a single request. If more than this number
 * of calls are encountered in a request batch a JSONRPC_INTERNAL_ERROR error is thrown.
 * @property {HTTP_Headers_Array} http_headers Default headers to include in HTTP / HTTPS responses. Each array element is an object
@@ -118,8 +118,8 @@ const JSONRPC_ERRORS = {
 */
 var rpc_options = {
   api_dir: "./api",
-  http_port: 8080,
-  ws_port: 8090,
+  http_port: 8082,
+  ws_port: 8092,
   max_batch_requests: 5,
   http_headers: [
 		{"Access-Control-Allow-Origin" : "*"}, //CORS header for global access
@@ -311,7 +311,7 @@ function processRPCRequest(requestData, sessionObj) {
    var parsed = false;
    try {
       sessionObj.requestObj = JSON.parse(requestData);
-      if ((sessionObj.requestObj != null) && (sessionObj.requestObj != undefined) && (sessionObj.requestObj != "")) {
+      if ((sessionObj.requestObj != null) && (sessionObj.requestObj !==undefined) && (sessionObj.requestObj !== "")) {
          parsed = true;
       }
    } catch (err) {
